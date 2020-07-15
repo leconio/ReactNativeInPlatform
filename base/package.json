@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./bundles/base.android.bundle --assets-dest ./bundles/res/android --config ./package.config.js --sourcemap-output  ./bundles/base.android.bundle --reset-cache",
-    "makeiOS": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ./bundles/base.ios.bundle --assets-dest ./bundles/res/ios --config ./package.config.js --sourcemap-output  ./bundles/base.ios.bundle --reset-cache"
+    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./bundles/base.android.bundle --assets-dest ./bundles/res/android --config ./package.config.js --sourcemap-output  ./bundles/base.android.bundle.map --reset-cache",
+    "makeiOS": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ./bundles/base.ios.bundle --assets-dest ./bundles/res/ios --config ./package.config.js --sourcemap-output  ./bundles/base.ios.bundle.map --reset-cache"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
