@@ -8,22 +8,12 @@ function postProcessModulesFilter(module) {
   }
   // 提前过滤依赖
   if (module['path'].indexOf(pathSep + 'node_modules' + pathSep) > 0) {
-    if (
-      'js' + pathSep + 'script' + pathSep + 'virtual' ==
-      module['output'][0]['type']
-    ) {
-      return true;
-    }
-    // console.log("buz postProcessModulesFilter ret false : "+module['path'])
     return false;
   }
-  // 只打cras模块，不打依赖
-  if (
-    module['path'].indexOf(pathSep + 'src' + pathSep + 'cras' + pathSep) > 0
-  ) {
+  if (module['path'].indexOf(pathSep + 'src' + pathSep) > 0) {
     return true;
   }
-  if (module['path'].indexOf('nextcras') > 0) {
+  if (module['path'].indexOf('index') > 0) {
     return true;
   }
   return false;

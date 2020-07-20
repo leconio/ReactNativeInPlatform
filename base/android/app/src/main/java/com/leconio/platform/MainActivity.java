@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package com.leconio.platform;
 
 import com.facebook.react.ReactActivity;
 

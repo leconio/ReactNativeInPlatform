@@ -1,9 +1,9 @@
 {
-  "name": "awesomeproject",
+  "name": "biz",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ --config ./package.config.js --sourcemap-output  android/app/src/main/assets/index.android.bundle.map --reset-cache",
+    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./bundles/biz.android.bundle --assets-dest ./bundles/res/android --config ./package.config.js --sourcemap-output  ./bundles/biz.android.bundle.map --reset-cache",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
