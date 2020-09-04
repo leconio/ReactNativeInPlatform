@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./bundles/simple.android.bundle --assets-dest ./bundles/res/android --config ./package.config.js --sourcemap-output  ./bundles/simple.android.bundle.map --reset-cache",
-    "makeiOS": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ./bundles/simple.ios.bundle --assets-dest ./bundles/res/ios --config ./package.config.js --sourcemap-output  ./bundles/simple.ios.bundle.map --reset-cache"
+    "start": "adb reverse tcp:8081 tcp:8081&&node node_modules/react-native/local-cli/cli.js start --port 8081 --reset-cache simple.js",
+    "make": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file simple.js --bundle-output ./bundles/simple.android.bundle --assets-dest ./bundles/res/android --config ./package.config.js --sourcemap-output  ./bundles/simple.android.bundle.map --reset-cache",
+    "makeiOS": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file simple.js --bundle-output ./bundles/simple.ios.bundle --assets-dest ./bundles/res/ios --config ./package.config.js --sourcemap-output  ./bundles/simple.ios.bundle.map --reset-cache"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

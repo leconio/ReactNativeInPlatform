@@ -1,17 +1,19 @@
 package com.leconio.platform.simple
 
+import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.infer.annotation.Assertions
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactRootView
 import com.facebook.react.bridge.CatalystInstance
-import com.facebook.react.devsupport.DoubleTapReloadRecognizer
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
+import com.leconio.platform.BuildConfig
 import com.leconio.platform.R
+import java.lang.reflect.InvocationTargetException
 
-class SimpleActivity : AppCompatActivity() {
+class SimpleActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private var instance: CatalystInstance? = null
     private lateinit var reactInstanceManager: ReactInstanceManager
@@ -25,6 +27,7 @@ class SimpleActivity : AppCompatActivity() {
 
     private fun initReactNative() {
         host = SimpleReactNativeHost(application)
+        initializeFlipper()
         reactInstanceManager = host.reactInstanceManager
         buildView()
     }
@@ -48,9 +51,30 @@ class SimpleActivity : AppCompatActivity() {
         findViewById<FrameLayout>(R.id.container).addView(rootView)
     }
 
+
+    private fun initializeFlipper() {
+        ReactNativeFlipper.initializeFlipper(application, host.reactInstanceManager)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        onHostResume()
+    }
+
+    private fun onHostResume() {
+        if (host.hasInstance()) {
+            host.reactInstanceManager
+                    .onHostResume(this, this as DefaultHardwareBackBtnHandler?)
+        }
+    }
+
     companion object {
         const val BUNDLE_NAME = "simple"
         const val BUNDLE_PATH = "assets://simple/simple.android.bundle"
+    }
+
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed()
     }
 
 }

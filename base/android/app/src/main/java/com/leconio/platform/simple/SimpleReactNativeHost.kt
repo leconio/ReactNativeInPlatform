@@ -5,6 +5,7 @@ import com.facebook.react.PackageList
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.leconio.platform.BuildConfig
+import com.leconio.platform.MainApplication
 
 
 class SimpleReactNativeHost(application: Application?) : ReactNativeHost(application) {

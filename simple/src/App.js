@@ -7,7 +7,7 @@
  */
 
 import React from "react";
-import { Text } from "react-native";
+import { Text, TouchableHighlight, View } from "react-native";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +15,29 @@ class App extends React.Component {
   }
 
   render() {
-    return <Text>Hello Simple Demo</Text>;
+    return (
+      <View>
+        <View style={{height:50}}>
+          <TouchableHighlight
+            onPress={() => {
+              console.log("123123");
+            }}
+          >
+            <Text>Log Something</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={{height:50}}>
+          <TouchableHighlight
+            onPress={() => {
+              fetch("https://api.github.com/users/octocat/orgs")
+              .then(res => console.log(res))
+            }}
+          >
+            <Text>fetch</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    );
   }
 }
 
